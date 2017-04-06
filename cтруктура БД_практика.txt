@@ -1,0 +1,14 @@
+- Database
+ 	- notes			
+		-id
+		-title
+		-text
+		-username
+		-pubdate
+	- users
+		-id
+		-username
+		-password
+		-is_admin(user|admin)
+		-reg_date
+		-email
