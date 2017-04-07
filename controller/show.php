@@ -7,8 +7,8 @@
  */
 require ("model/Database.php");
 $Database = new Database();
-$Database->connectToDb();
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC");
+include ("view/form_notes_show.php");
 
 //// находим максимальный (последний) $id записи(note) в базе данных
 //$max = mysqli_query($Database->connection,"SELECT MAX(`id`) AS `id` FROM `notes`");
@@ -43,29 +43,15 @@ $result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pu
 //CONTENT;
 //    echo $content;
 //}
+if (mysqli_num_rows($result) == 0){
+    echo '<h4>Заметок нет!</h4>';
+} else{
+while (($Database->record = mysqli_fetch_assoc($result))){
 
-while (($record = mysqli_fetch_assoc($result))){
-        $content=<<<CONTENT
-<!--	Контент-->
+    echo $p1.$Database->getNoteTitle().$p2.$Database->getNoteText().$p3.$Database->getPubDate().$p4;
 
-<div class="zametka$i col-lg-offset-2">
-  <div class="row heading ">
-
-              <h3 class="col-lg-4">$record[title]</h3>
-  </div>
-              <button type="button" class="btn btn-warning"><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
-        <button type="button" class="btn btn-danger"><span class="glyphicons glyphicons-delete"></span>Удалить</button>
-
-
-        <p class="col-lg-8">$record[text]</p>
-        <br><br>
-        <span class="text-muted">Дата публикации: $record[pubdate]</span>
-</div>
-<!--	конец контента-->
-CONTENT;
-    echo $content;
+    }
 }
-
     $Database->closeConnection();
 
 
