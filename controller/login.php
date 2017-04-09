@@ -22,4 +22,3 @@ echo $form = <<<FORM
 </body>
 </html>
 FORM;
-?>

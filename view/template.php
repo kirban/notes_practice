@@ -15,17 +15,17 @@ $top = <<<TOP
     <title>$title</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="view/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../view/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="view/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../view/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="view/css/style.css" rel="stylesheet">
+    <link href="../view/css/style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="view/js/ie-emulation-modes-warning.js"></script>
+    <script src="../view/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -72,7 +72,7 @@ $top = <<<TOP
             <h3 class="page-header ">Привет, $username!</h2>
           </div>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
+            <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
             <li><a href="controller/add.php">Добавить заметку</a></li>
             <li><a href="#">Связаться с администрацией</a></li>
             <li class="hidden"><a href="#">Посмотреть заметки пользователя<sup style="color:red">админ</sup></a></li>
@@ -102,12 +102,12 @@ $bottom = <<<BOTTOM
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="view/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="view/js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../view/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../view/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="view/js/vendor/holder.min.js"></script>
+    <script src="../view/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="view/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../view/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
 BOTTOM;

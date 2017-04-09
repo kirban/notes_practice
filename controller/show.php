@@ -10,49 +10,22 @@ $Database = new Database();
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC");
 include ("view/form_notes_show.php");
 
-//// находим максимальный (последний) $id записи(note) в базе данных
-//$max = mysqli_query($Database->connection,"SELECT MAX(`id`) AS `id` FROM `notes`");
-//$res_max = mysqli_fetch_assoc($max);
-//$not_arr = $res_max['id'];
-//echo "<p align='center'>";
-//echo $not_arr;
-//echo "</p>";
-//
-//// нашли
 
-
-
-//for ($i=1;$i < count($result)+2;$i++){
-//    $content=<<<CONTENT
-//<!--	Контент-->
-//
-//<div class="zametka$i col-lg-offset-2">
-//  <div class="row heading ">
-//
-//              <h3 class="col-lg-4">$record[title]</h3>
-//  </div>
-//              <button type="button" class="btn btn-warning"><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
-//        <button type="button" class="btn btn-danger"><span class="glyphicons glyphicons-delete"></span>Удалить</button>
-//
-//
-//        <p class="col-lg-8">$record[text]</p>
-//        <br><br>
-//        <span class="text-muted">Дата публикации: $record[pubdate]</span>
-//</div>
-//<!--	конец контента-->
-//CONTENT;
-//    echo $content;
-//}
 if (mysqli_num_rows($result) == 0){
     echo '<h4>Заметок нет!</h4>';
 } else{
 while (($Database->record = mysqli_fetch_assoc($result))){
+    $d = $Database->getNoteId();
+    $buttons=<<<BUT
+            <form method="post" class="form-inline col-lg-6 col-lg-offset-9">
+              <button type="submit" class="btn btn-warning" formaction="../controller/change.php" value="$d" name="change" formtarget='_blank'><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
+              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" formtarget='_blank'><span class="glyphicons glyphicons-delete"></span>Удалить</button>
+              </form>
+BUT;
 
-    echo $p1.$Database->getNoteTitle().$p2.$Database->getNoteText().$p3.$Database->getPubDate().$p4;
+    echo $p1.$Database->getNoteTitle($d).$p2.$buttons.$p3.$Database->getNoteText($d).$p3.$p4.$Database->getPubDate($d).$p5;
 
     }
 }
     $Database->closeConnection();
 
-
-?>
