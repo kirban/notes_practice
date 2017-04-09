@@ -90,7 +90,7 @@ class Database{
 
     function setPubDate($setPubDate){
 
-        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `title` = $setPubDate WHERE `notes`.`id` = $this->record[id]");
+        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `pub_date` = $setPubDate WHERE `notes`.`id` = $this->record[id]");
 
     }
 
