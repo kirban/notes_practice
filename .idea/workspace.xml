@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf415490-16a3-4e07-b31b-0eda6daca5d7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/change.php" afterPath="$PROJECT_DIR$/controller/change.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Database.php" afterPath="$PROJECT_DIR$/model/Database.php" />
-    </list>
+    <list default="true" id="bf415490-16a3-4e07-b31b-0eda6daca5d7" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,8 +110,8 @@
       <file leaf-file-name="Database.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/Database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="47" column="34" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="34" />
+            <state relative-caret-position="170">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <marker date="1491772776603" expanded="true" signature="782:827" ph="SELECT * FRO... notes" />
                 <marker date="1491772776603" expanded="true" signature="1074:1109" ph="SELECT * FRO... notes" />
@@ -377,16 +374,15 @@
       <workItem from="1491549301603" duration="2255000" />
       <workItem from="1491561787612" duration="3751000" />
       <workItem from="1491596036947" duration="1046000" />
-      <workItem from="1491654440875" duration="26320000" />
+      <workItem from="1491654440875" duration="26381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67629000" />
+    <option name="totallyTimeSpent" value="67690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="461" y="288" width="1440" height="780" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11165731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -772,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="47" column="34" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="34" />
+        <state relative-caret-position="170">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <marker date="1491772776603" expanded="true" signature="782:827" ph="SELECT * FRO... notes" />
             <marker date="1491772776603" expanded="true" signature="1074:1109" ph="SELECT * FRO... notes" />
