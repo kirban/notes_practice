@@ -1,6 +1,7 @@
 <?php
 
 class Database{
+
     private $host = 'localhost';
     private $user = 'kirban';
     private $pass = '34752';
@@ -12,18 +13,19 @@ class Database{
 
 
     function connectToDb(){     //функция подключения к БД
+
         $this->connection = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
         if (!$this->connection){
             echo "<script>alert('ERROR CONNECTING TO DATABASE!')</script>";
             echo mysqli_connect_error();
             die();
+
         }
     }
 
     function closeConnection(){     //функция отключения от БД
 
         mysqli_close($this->connection);
-
 
     }
 
@@ -44,53 +46,58 @@ class Database{
 
     function getNoteTitle($id){
 
-        $q=mysqli_query($this->connection,"SELECT * FROM `notes` WHERE `id` = $id");
-        $c=mysqli_fetch_assoc($q);
+        $q = mysqli_query($this->connection,"SELECT `title` FROM `notes` WHERE `id` = $id");
+        $c = mysqli_fetch_assoc($q);
         return $c[title];
 
     }
     function getNoteText($id){
 
-        $q=mysqli_query($this->connection,"SELECT * FROM `notes` WHERE `id` = $id");
-        $c=mysqli_fetch_assoc($q);
+        $q = mysqli_query($this->connection,"SELECT `text` FROM `notes` WHERE `id` = $id");
+        $c = mysqli_fetch_assoc($q);
         return $c[text];
 
     }
     function getUserId($id){
 
-        $q=mysqli_query($this->connection,"SELECT * FROM `notes` WHERE `id` = $id");
-        $c=mysqli_fetch_assoc($q);
+        $q = mysqli_query($this->connection,"SELECT `user_id` FROM `notes` WHERE `id` = $id");
+        $c = mysqli_fetch_assoc($q);
         return $c[user_id];
 
     }
     function getPubDate($id){
 
-        $q=mysqli_query($this->connection,"SELECT * FROM `notes` WHERE `id` = $id");
-        $c=mysqli_fetch_assoc($q);
+        $q = mysqli_query($this->connection,"SELECT `pubdate` FROM `notes` WHERE `id` = $id");
+        $c = mysqli_fetch_assoc($q);
         return $c[pubdate];
 
     }
 
     function setNoteTitle($setTitle){
 
-        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `title` = $setTitle WHERE `notes`.`id` = $this->record[id]");
+        $id = $this->getNoteId();
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `title` = '$setTitle' WHERE `notes`.`id` = $id");
+
 
     }
     function setNoteText($setText){
+        $id = $this->getNoteId();
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `text` = '$setText' WHERE `notes`.`id` = $id");
 
-        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `text` = $setText WHERE `notes`.`id` = $this->record[id]");
 
     }
 
     function setUserId($setUserId){
 
-        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `user_id` = $setUserId WHERE `notes`.`id` = $this->record[id]");
+        $id = $this->getNoteId();
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `user_id` = '$setUserId' WHERE `notes`.`id` = $id");
 
     }
 
     function setPubDate($setPubDate){
 
-        mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `pub_date` = $setPubDate WHERE `notes`.`id` = $this->record[id]");
+        $id = $this->getNoteId();
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `pub_date` = $setPubDate WHERE `notes`.`id` = $id");
 
     }
 

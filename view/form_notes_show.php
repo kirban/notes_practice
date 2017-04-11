@@ -3,7 +3,7 @@
 $p1=<<<P1
 <div class="zametka">
   <div class="row heading">                                                
-              <h3 class="col-lg-4">
+              <h3 class="col-lg-7">
 P1;
 
 $p2= "</h3>";
