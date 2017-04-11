@@ -12,7 +12,7 @@ if (!$q){
     die();
 }
 else {
-    echo 'SUCCESS!!!';
+    header('Location:http://practice.loc/');
     $Database->closeConnection();
-    echo '<a href="/">Назад</a>';
+
 }

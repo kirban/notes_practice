@@ -18,8 +18,8 @@ while (($Database->record = mysqli_fetch_assoc($result))){
     $d = $Database->getNoteId();
     $buttons=<<<BUT
             <form method="post" class="form-inline col-lg-6 col-lg-offset-9">
-              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change" formtarget='_blank'><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
-              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" formtarget='_blank'><span class="glyphicons glyphicons-delete"></span>Удалить</button>
+              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change"><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
+              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" ><span class="glyphicons glyphicons-delete"></span>Удалить</button>
               </form>
 BUT;
 

@@ -15,6 +15,6 @@ if (!$Tit && !$Text){
     die();
 }
 else {
-    echo 'SUCCESS!!!<br>';
-    echo '<a href="/">Home</a>';
+  header('Location:http://practice.loc/');
+  exit;
 }
