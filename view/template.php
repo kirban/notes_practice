@@ -51,7 +51,7 @@ $top = <<<TOP
    <div class="collapse navbar-collapse hidden-sm hidden-md hidden-lg" id="navbar">
       <ul class="nav navbar-nav">
         <li class="active hidden-sm hidden-md hidden-lg"><a href="#">Мои заметки</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="#" >Добавить заметку</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="controller/add.php" >Добавить заметку</a></li>
         <li class="hidden-sm hidden-md hidden-lg"><a href="#">Связаться с администрацией</a></li>
         <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Посмотреть заметки пользователя</a></li>
         <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Удалить пользователя</a></li>
@@ -73,7 +73,7 @@ $top = <<<TOP
           </div>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
-            <li><a href="controller/add.php">Добавить заметку</a></li>
+            <li><a href="view/form_note_create.php">Добавить заметку</a></li>
             <li><a href="#">Связаться с администрацией</a></li>
             <li class="hidden"><a href="#">Посмотреть заметки пользователя<sup style="color:red">админ</sup></a></li>
             <li class="hidden"><a href="#">Удалить пользователя<sup style="color:red">админ</sup></a></li>

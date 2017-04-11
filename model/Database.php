@@ -73,6 +73,12 @@ class Database{
 
     }
 
+    function newNote($title,$text,$user_id){
+
+        return mysqli_query($this->connection,"INSERT INTO `notes` (`id`, `title`, `text`, `user_id`, `pubdate`) VALUES (NULL, '$title', '$text', $user_id, CURRENT_TIMESTAMP)");
+
+    }
+
     function setNoteTitle($setTitle){
 
         $id = $this->getNoteId();
