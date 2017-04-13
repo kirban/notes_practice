@@ -7,11 +7,12 @@
  */
 require ("model/Database.php");
 $Database = new Database();
-$result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC");
+$result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC LIMIT 5");//SELECT * FROM `notes` ORDER BY `pubdate` DESC
 include ("view/form_notes_show.php");
 
 
 if (mysqli_num_rows($result) == 0){
+    $all = NULL;
     echo '<h4>Заметок нет!</h4>';
 } else{
 while (($Database->record = mysqli_fetch_assoc($result))){

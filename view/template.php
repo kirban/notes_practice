@@ -51,8 +51,8 @@ $top = <<<TOP
    <div class="collapse navbar-collapse hidden-sm hidden-md hidden-lg" id="navbar">
       <ul class="nav navbar-nav">
         <li class="active hidden-sm hidden-md hidden-lg"><a href="#">Мои заметки</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="controller/add.php" >Добавить заметку</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="#">Связаться с администрацией</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="controller/form_note_create.php" >Добавить заметку</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="view/form_contact.php">Связаться с администрацией</a></li>
         <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Посмотреть заметки пользователя</a></li>
         <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Удалить пользователя</a></li>
       </ul>
@@ -74,13 +74,14 @@ $top = <<<TOP
           <ul class="nav nav-sidebar">
             <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
             <li><a href="view/form_note_create.php">Добавить заметку</a></li>
-            <li><a href="#">Связаться с администрацией</a></li>
+            <li><a href="view/form_contact.php">Связаться с администрацией</a></li>
             <li class="hidden"><a href="#">Посмотреть заметки пользователя<sup style="color:red">админ</sup></a></li>
             <li class="hidden"><a href="#">Удалить пользователя<sup style="color:red">админ</sup></a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">$toptitle</h1>
+          <form method="POST" action="index.php"><a href="../controller/show_all.php" name="show_all">$all</a></form>
 
           
 

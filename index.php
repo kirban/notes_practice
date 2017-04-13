@@ -7,6 +7,7 @@
  */
 $toptitle = "Мои заметки";
 $title = "Главная - Notes Web Application";
+$all = "Все заметки";
 require ("view/template.php");
 
 
@@ -15,4 +16,7 @@ require ("view/template.php");
 
 echo $top;
 include("controller/show.php");
+if (isset($_POST['show_all'])){
+    include "controller/show_all.php";
+}
 echo $bottom;
