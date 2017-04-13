@@ -2,16 +2,34 @@
 include "../model/Database.php";
 include "../model/User.php";
 
-$Database = new Database();
-$Database->connectToDb();
+$User = new User();
+$User->connectToDb();
 
-$query = mysqli_query($Database->connection,"CREATE TABLE IF NOT EXISTS `practice`.`users` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `username` VARCHAR(25) NOT NULL , `password` VARCHAR(255) NOT NULL , `is_admin` BOOLEAN NULL , `email` VARCHAR (255) NULL , PRIMARY KEY (`id`), UNIQUE `username` (`username`)) ENGINE = InnoDB;");
+$query = mysqli_query($User->connection,"CREATE TABLE IF NOT EXISTS `practice`.`users` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `username` VARCHAR(25) NOT NULL , `password` VARCHAR(255) NOT NULL , `is_admin` BOOLEAN NULL , `email` VARCHAR (255) NULL , PRIMARY KEY (`id`), UNIQUE `username` (`username`)) ENGINE = InnoDB;");
 
-if($query) {
-//    if ( isset($_POST['signin']) ){
-//        $user = 2;
 
-        ?>
+    if ( isset($_POST['signin']) ) {
+
+        $errors = array();
+        if($User->userSearch($_POST['inputUsername']) == 0){
+            $errors[] = 'Пользователя с таким именем не существует! <a href="../controller/register.php">Зарегистрируйтесь!</a>';
+        }
+        else{
+
+            if (!password_verify($_POST['inputPassword'],$User->checkPassword($_POST['inputUsername']))){
+                $errors[] = 'Неверный пароль!';
+            }
+        }
+        if (empty($errors)){    // все хорошо
+            header( 'Refresh: 5;url=http://practice.loc/index.php');
+            echo '<div class="alert alert-success"><strong>Вы успешно вошли!</strong> Через 5 секунд вы окажетесь на главной!</div><hr>';
+        }
+        else{
+            echo '<div class="alert alert-danger"><strong>'.array_shift($errors).'</strong></div>';
+        }
+
+    }
+?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -50,14 +68,14 @@ if($query) {
 
     <div class="container">
 
-        <form class="form-signin" method="post">
+        <form class="form-signin" action="../view/signin.php" method="post">
             <h2 class="form-signin-heading">Добро пожаловать!</h2>
-            <label for="inputUsername" class="sr-only">Имя пользователя:</label>
-            <input type="email" id="inputUsername" class="form-control" placeholder="Имя пользователя" autofocus name="inputUsername">
-            <label for="inputPassword" class="sr-only">Пароль:</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Пароль">
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="signin">Вход</button>
+            <input type="text" class="form-control" placeholder="Имя пользователя" name="inputUsername">
+
+            <input type="password" class="form-control" placeholder="Пароль" name="inputPassword">
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="signin" formaction="../view/signin.php">Вход</button>
             <button class="btn btn-lg btn-success btn-block" type="button" name="register" formaction="../controller/register.php">Регистрация</button>
         </form>
 
@@ -69,7 +87,6 @@ if($query) {
     </body>
     </html>
     <?php
-//          }
-}
-$Database->closeConnection();
+
+$User->closeConnection();
 ?>
