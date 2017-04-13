@@ -2,10 +2,10 @@
 
 class Database{
 
-    private $host = 'localhost';
-    private $user = 'kirban';
-    private $pass = '34752';
-    private $db = 'practice';
+    protected $host = 'localhost';
+    protected $user = 'kirban';
+    protected $pass = '34752';
+    protected $db = 'practice';
     public $connection;
     public $result;
     public $record;
@@ -16,6 +16,7 @@ class Database{
 
         $this->connection = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
         if (!$this->connection){
+
             echo "<script>alert('ERROR CONNECTING TO DATABASE!')</script>";
             echo mysqli_connect_error();
             die();
@@ -58,7 +59,7 @@ class Database{
         return $c[text];
 
     }
-    function getUserId($id){
+    function getUserNotes($id){
 
         $q = mysqli_query($this->connection,"SELECT `user_id` FROM `notes` WHERE `id` = $id");
         $c = mysqli_fetch_assoc($q);
