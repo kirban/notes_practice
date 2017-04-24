@@ -1,8 +1,5 @@
 <?php
 class User extends Database {
-    protected $username;
-    protected $password;
-
 
     function newUser ($username,$password,$email){
 
@@ -25,7 +22,11 @@ class User extends Database {
 
     }
 
-    function getUserId(){
+    function getUserId($username){
+
+        $q = mysqli_query($this->connection,"SELECT `id` FROM `users` WHERE `username` = '$username'");
+        $c = mysqli_fetch_assoc($q);
+        return $c['id'];
 
     }
 

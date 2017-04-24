@@ -7,10 +7,13 @@
  */
 $title = "Главная - Notes Web Application";
 $toptitle = "Мои заметки";
+
 include "../view/template.php";
 require ("../model/Database.php");
 $Database = new Database();
-$result = mysqli_query($Database->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC");
+session_start();
+$user_id = $_SESSION["user_id"];
+$result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC");
 include ("../view/form_notes_show.php");
 
 echo $top;

@@ -5,7 +5,8 @@
  * Date: 11.04.2017
  * Time: 18:48
  */
-require ("../model/Database.php");
+
+
 $toptitle = "Новая заметка";
 $title = "Создание заметки - Notes Web Service";
 require ("../view/template.php");

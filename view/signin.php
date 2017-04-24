@@ -5,6 +5,9 @@ include "../model/User.php";
 $User = new User();
 $User->connectToDb();
 
+
+
+
 $query = mysqli_query($User->connection,"CREATE TABLE IF NOT EXISTS `practice`.`users` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `username` VARCHAR(25) NOT NULL , `password` VARCHAR(255) NOT NULL , `is_admin` BOOLEAN NULL , `email` VARCHAR (255) NULL , PRIMARY KEY (`id`), UNIQUE `username` (`username`)) ENGINE = InnoDB;");
 
 
@@ -21,7 +24,10 @@ $query = mysqli_query($User->connection,"CREATE TABLE IF NOT EXISTS `practice`.`
             }
         }
         if (empty($errors)){    // все хорошо
-            header( 'Refresh: 5;url=http://practice.loc/index.php');
+            session_start();
+            $_SESSION['session_username']=$_POST['inputUsername'];
+            //header( 'Refresh: 2;url=http://practice.loc/index.php');
+            header('Location: ../index.php');
             echo '<div class="alert alert-success"><strong>Вы успешно вошли!</strong> Через 5 секунд вы окажетесь на главной!</div><hr>';
         }
         else{
@@ -68,7 +74,7 @@ $query = mysqli_query($User->connection,"CREATE TABLE IF NOT EXISTS `practice`.`
 
     <div class="container">
 
-        <form class="form-signin" action="../view/signin.php" method="post">
+        <form class="form-signin" method="post" action="../view/signin.php">
             <h2 class="form-signin-heading">Добро пожаловать!</h2>
 
             <input type="text" class="form-control" placeholder="Имя пользователя" name="inputUsername">
@@ -76,7 +82,7 @@ $query = mysqli_query($User->connection,"CREATE TABLE IF NOT EXISTS `practice`.`
             <input type="password" class="form-control" placeholder="Пароль" name="inputPassword">
 
             <button class="btn btn-lg btn-primary btn-block" type="submit" name="signin" formaction="../view/signin.php">Вход</button>
-            <button class="btn btn-lg btn-success btn-block" type="button" name="register" formaction="../controller/register.php">Регистрация</button>
+            <a class="btn btn-lg btn-success btn-block" type="button" name="register" href="../controller/register.php">Регистрация</a>
         </form>
 
     </div> <!-- /container -->

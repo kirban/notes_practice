@@ -15,6 +15,6 @@ if (!$Tit && !$Text){
     die();
 }
 else {
-  header('Location:http://practice.loc/');
+  header('Location: ../');
   exit;
 }

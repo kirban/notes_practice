@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+$username = $_SESSION["session_username"];
 $top = <<<TOP
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@ $top = <<<TOP
     <link href="../view/css/style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="../view/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../view/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,22 +46,19 @@ $top = <<<TOP
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Notes service</a>
+          <a class="navbar-brand" href="../">Notes service</a>
         </div>
         
    <div class="collapse navbar-collapse hidden-sm hidden-md hidden-lg" id="navbar">
       <ul class="nav navbar-nav">
-        <li class="active hidden-sm hidden-md hidden-lg"><a href="#">Мои заметки</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="controller/form_note_create.php" >Добавить заметку</a></li>
-        <li class="hidden-sm hidden-md hidden-lg"><a href="view/form_contact.php">Связаться с администрацией</a></li>
-        <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Посмотреть заметки пользователя</a></li>
-        <li class="hidden-xs hidden-sm hidden-md hidden-lg"><a href="#">Удалить пользователя</a></li>
-      </ul>
+        <li class="active hidden-sm hidden-md hidden-lg"><a href="/">Мои заметки</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="../view/form_note_create.php" >Добавить заметку</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="../view/form_contact.php">Связаться с администрацией</a></li>
+        <li class="hidden-sm hidden-md hidden-lg"><a href="../controller/signout.php"><strong>Выйти</strong></a></li>
+       </ul>
 
       
-        <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Поиск...">
-          </form>
+       
         </div>
       </div>
     </nav>
@@ -70,15 +68,18 @@ $top = <<<TOP
         <div class="col-sm-3 col-md-2 col-lg-2 sidebar">
           <div class="hello">
             <h3 class="page-header ">Привет, $username!</h2>
+            
           </div>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
-            <li><a href="view/form_note_create.php">Добавить заметку</a></li>
-            <li><a href="view/form_contact.php">Связаться с администрацией</a></li>
-            <li class="hidden"><a href="#">Посмотреть заметки пользователя<sup style="color:red">админ</sup></a></li>
+            <li><a href="../view/form_note_create.php">Добавить заметку</a></li>
+            <li><a href="../view/form_contact.php">Связаться с администрацией</a></li>
+            
             <li class="hidden"><a href="#">Удалить пользователя<sup style="color:red">админ</sup></a></li>
           </ul>
+          <a href="../controller/signout.php"><strong>Выйти</strong></a>
         </div>
+        
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">$toptitle</h1>
           <form method="POST" action="index.php"><a href="../controller/show_all.php" name="show_all">$all</a></form>

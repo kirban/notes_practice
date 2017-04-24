@@ -2,10 +2,10 @@
 
 class Database{
 
-    protected $host = 'localhost';
-    protected $user = 'kirban';
-    protected $pass = '34752';
-    protected $db = 'practice';
+    protected $host = 'Localhost';
+    protected $user = 'cp104252';
+    protected $pass = 'CWV08ex42g';
+    protected $db = 'cp104252_notes';
     public $connection;
     public $result;
     public $record;

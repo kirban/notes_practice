@@ -33,7 +33,7 @@ if(isset($_POST['regbut'])){
         //все хорошо
 
         if($User->newUser($username,$password,$email)){
-            header( 'Refresh: 5;url=http://practice.loc/index.php');
+            header( 'Refresh: 5;url=../index.php');
         echo '<div class="alert alert-success"><strong>Вы успешно зарегистрированы!</strong> Через 5 секунд вы будете перенаправлены на страницу входа</div><hr>';
 
         }
