@@ -1,17 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Кирилл
- * Date: 11.04.2017
- * Time: 18:48
- */
-
-
-$toptitle = "Новая заметка";
-$title = "Создание заметки - Notes Web Service";
-require ("../view/template.php");
-
-$content=<<<CONTENT
 <!-- CONTENT -->
 <div class="zametka">
     <div class="row heading">
@@ -32,6 +18,3 @@ $content=<<<CONTENT
 </div>
 </div>
 <!-- CONTENT -->
-CONTENT;
-
-echo $top.$content.$bottom;

@@ -7,9 +7,9 @@
  */
 $title = "Cвязь";
 $toptitle = "Форма связи";
-include "../view/template.php";
+require ("../view/top_template.php");
 
-$content=<<<CONTENT
+?>
           <!-- Содержимое контейнера -->
           <div class="panel-body">
  
@@ -58,6 +58,6 @@ $content=<<<CONTENT
  
           </div>
         </div><!-- Конец контейнера -->
-CONTENT;
 
-echo $top.$content.$bottom;
+<?php
+require ("../view/bottom_template.php");
