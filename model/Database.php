@@ -2,19 +2,20 @@
 
 class Database{
 
-    protected $host = 'Localhost';
-    protected $user = 'cp104252';
-    protected $pass = 'CWV08ex42g';
-    protected $db = 'cp104252_notes';
     public $connection;
     public $result;
     public $record;
 
 
+    function createTable(){
+        return mysqli_query($this->connection,"");
+    }
 
-    function connectToDb(){     //функция подключения к БД
 
-        $this->connection = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
+    function connectToDb($config){     //функция подключения к БД
+
+//        $this->connection = mysqli_connect($this->host,$this->user,$this->pass,$this->db);
+        $this->connection = mysqli_connect($config['db']['host'],$config['db']['user'],$config['db']['password'],$config['db']['dbname']);
         if (!$this->connection){
 
             echo "<script>alert('ERROR CONNECTING TO DATABASE!')</script>";
@@ -32,8 +33,10 @@ class Database{
 
     function __construct()
     {
-
-        $this->connectToDb();
+        require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+        if (!empty($config)) {
+            $this->connectToDb($config);
+        }
         $this->result = mysqli_query($this->connection,"SELECT * FROM `notes` ORDER BY `pubdate` DESC");
         $this->record = mysqli_fetch_assoc($this->result);
 

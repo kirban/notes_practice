@@ -8,15 +8,18 @@
 $title = "Главная - Notes Web Application";
 $toptitle = "Мои заметки";
 
-include "../view/template.php";
-require ("../model/Database.php");
+
+include ("../model/Database.php");
+
 $Database = new Database();
 session_start();
 $user_id = $_SESSION["user_id"];
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC");
+
+
 include ("../view/form_notes_show.php");
 
-echo $top;
+require ("../view/top_template.php");
     while (($Database->record = mysqli_fetch_assoc($result))){
         $d = $Database->getNoteId();
         $buttons=<<<BUT
@@ -30,5 +33,5 @@ BUT;
 
 
 }
-echo $bottom;
+require ("../view/bottom_template.php");
 $Database->closeConnection();

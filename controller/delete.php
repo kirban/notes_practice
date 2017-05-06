@@ -1,7 +1,8 @@
 <?php
 include ('../model/Database.php');
+require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
 $Database = new Database();
-$Database->connectToDb();
+$Database->connectToDb($config);
 
 $note_id = $_POST['delete'];
 

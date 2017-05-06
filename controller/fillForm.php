@@ -8,19 +8,16 @@
 require ("../model/Database.php");
 $toptitle = "Редактирование";
 $title = "Редактирование заметки - Notes Web Service";
-require ("../view/template.php");
 
-
+require ("../view/top_template.php");
 
 $Database = new Database();
-
 
 $note_id = $_POST['change'];
 
 $note_title = $Database->getNoteTitle($note_id);
 $note_text = $Database->getNoteText($note_id);
 
+require("../view/form_note_change.php");
 
-require "../view/form_note_change.php";
-
-echo $top.$content.$bottom;
+require ("../view/bottom_template.php");

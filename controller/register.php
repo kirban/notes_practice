@@ -1,9 +1,9 @@
 <?php
 include "../model/Database.php";
 include "../model/User.php";
-
+require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
 $User = new User();
-$User->connectToDb();
+$User->connectToDb($config);
 
 $data = $_POST;
 if(isset($_POST['regbut'])){

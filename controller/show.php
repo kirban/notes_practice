@@ -5,11 +5,15 @@
  * Date: 06.04.2017
  * Time: 12:41
  */
+require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+
 session_start();
 $user_id = $_SESSION["user_id"];
 
+$limit = $config['show_limit'];
+
 $Database = new Database();
-$result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC LIMIT 5");//SELECT * FROM `notes` ORDER BY `pubdate` DESC
+$result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC LIMIT $limit");//SELECT * FROM `notes` ORDER BY `pubdate` DESC
 include ("view/form_notes_show.php");
 
 
