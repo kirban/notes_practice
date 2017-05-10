@@ -13,14 +13,16 @@ $user_id = $_SESSION["user_id"];
 $limit = $config['show_limit'];
 
 $Database = new Database();
+
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC LIMIT $limit");//SELECT * FROM `notes` ORDER BY `pubdate` DESC
-echo " <div class='categories' style='margin: 0px 25%; '>";
+
+echo " <form class='categories' action='controller/show_cat.php' method='post'>";
 
             include ("$PathModel/Category.php");
             $Category = new Category();
             $Category->returnListOfCategories();
 
-echo "</div>";
+echo "</form>";
 include ("view/form_notes_show.php");
 
 

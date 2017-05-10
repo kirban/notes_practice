@@ -5,7 +5,7 @@
  * Date: 27.03.2017
  * Time: 14:12
  */
-
+//todo: добавить функционал напоминаний
 require "model/Database.php";
 require "model/User.php";
 
@@ -29,5 +29,6 @@ else {
     if (isset($_POST['show_all'])) {
         include("controller/show_all.php");
     }
+
     require("view/bottom_template.php");
 }

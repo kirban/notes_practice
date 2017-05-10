@@ -19,15 +19,6 @@ session_start();
 $user_id = $_SESSION["user_id"];
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC");
 
-echo " <div class='categories' style='margin: 0px 25%; '>";
-
-include ("$PathModel/Category.php");
-$Category = new Category();
-$Category->returnListOfCategories();
-
-echo "</div>";
-
-
 include ("../view/form_notes_show.php");
 
 require ("../view/top_template.php");

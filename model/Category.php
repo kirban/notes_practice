@@ -18,8 +18,13 @@ class Category extends Database
 
         $q = mysqli_query($this->connection,"SELECT `category_name` FROM `practice`.`categories` ");
         $c = mysqli_fetch_assoc($q);
+        $i = 0;
         foreach ($q as $c){
-            print_r("<a href='#'>".$c['category_name']."</a>".' ');
+            $cat_name = $c['category_name'];
+            $cat_id = $i;
+            print_r("<button type='sumbit' name='cat_id' value='$cat_id'>$cat_name</button>");
+            $i++;
+
         }
     }
 

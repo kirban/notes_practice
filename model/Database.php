@@ -7,6 +7,7 @@ class Database{
     public $record;
 
 
+
     function createTable(){
 
         return mysqli_query($this->connection,"CREATE TABLE `practice`.`notes` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NULL DEFAULT NULL , `text` TEXT NULL DEFAULT NULL , `user_id` INT(11) NULL DEFAULT NULL , `pubdate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `category_id` INT(11) NOT NULL DEFAULT '0' , `category_name` VARCHAR(255) NOT NULL DEFAULT 'Без категории' , PRIMARY KEY (`id`)) ENGINE = InnoDB;");

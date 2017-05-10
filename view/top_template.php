@@ -83,7 +83,7 @@ require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
 
           </div>
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
+            <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li>
             <li><a href="<?php echo $indexPath; ?>/controller/create.php">Добавить заметку</a></li>
             <li><a href="<?php echo $indexPath; ?>/view/form_contact.php">Связаться с администрацией</a></li>
 
