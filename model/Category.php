@@ -6,6 +6,7 @@
  * Date: 05.05.2017
  * Time: 19:36
  */
+
 class Category extends Database
 {
     function createTable(){
@@ -17,10 +18,38 @@ class Category extends Database
 
         $q = mysqli_query($this->connection,"SELECT `category_name` FROM `practice`.`categories` ");
         $c = mysqli_fetch_assoc($q);
-        $count = mysqli_query($this->connection,"COUNT()");
-        for ($i=1;i<$count;$i++){
-            return $c['category_name'];
+        foreach ($q as $c){
+            print_r("<a href='#'>".$c['category_name']."</a>".' ');
         }
     }
+
+    function returnListOptions($unsetCat){
+
+        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `practice`.`categories` ");
+        $c = mysqli_fetch_assoc($q);
+
+        if (is_null($unsetCat)) {   //если 0, то просто выводим список
+            foreach ($q as $c) {
+                print_r("<option>" . $c['category_name'] . "</option>");
+            }
+
+        }
+        else{
+        // если задан параметр метода
+            foreach ( $q as $c => $value){
+                if ($value['category_name'] == $unsetCat){
+                    // если параметр совпадает с названием уже выведенной категории, то: cлед. итерация
+                    continue;
+                }
+                else {
+                    //вывод на экран
+                    $cat_name = $value['category_name'];
+                    print_r("<option value='$cat_name'>$cat_name</option>");
+
+                }
+            }
+        }
+    }
+
 
 }

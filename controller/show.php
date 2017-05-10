@@ -14,6 +14,13 @@ $limit = $config['show_limit'];
 
 $Database = new Database();
 $result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id ORDER BY `pubdate` DESC LIMIT $limit");//SELECT * FROM `notes` ORDER BY `pubdate` DESC
+echo " <div class='categories' style='margin: 0px 25%; '>";
+
+            include ("$PathModel/Category.php");
+            $Category = new Category();
+            $Category->returnListOfCategories();
+
+echo "</div>";
 include ("view/form_notes_show.php");
 
 
@@ -30,7 +37,7 @@ while (($Database->record = mysqli_fetch_assoc($result))){
               </form>
 BUT;
 
-    echo $p1.$Database->getNoteTitle($d).$p2.$buttons.$p3.$Database->getNoteText($d).$p3.$p4.$Database->getPubDate($d).$p5;
+    echo $p1.$Database->getNoteTitle($d).$p2.$buttons.$p3.$Database->getNoteText($d).$p3.$p4.$Database->getPubDate($d).$p5.$Database->getCatName($d).$p6;
 
     }
 }

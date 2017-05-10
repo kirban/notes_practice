@@ -1,6 +1,6 @@
 <?php
 $indexPath = "..";
-$Path = "E:/OpenServer/OpenServer/domains/practice.loc/model";
+$PathModel = "E:/OpenServer/OpenServer/domains/practice.loc/model";
 //require ("$indexPath/model/Database.php");
 //require ("$indexPath/model/User.php");
 session_start();
@@ -86,14 +86,7 @@ require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
             <li class="active"><a href="/">Мои заметки<span class="sr-only">(current)</span></a></li></a></li>
             <li><a href="<?php echo $indexPath; ?>/controller/create.php">Добавить заметку</a></li>
             <li><a href="<?php echo $indexPath; ?>/view/form_contact.php">Связаться с администрацией</a></li>
-<!---->
-<!--////              include ("$Path/Database.php");-->
-<!--//              include ("$Path/User.php");-->
-<!--//              $User = new User();-->
-<!--//              if ($User->ifAdmin($username) != 0){-->
-<!--//                  echo "<li><a href='$indexPath/controller/new_cat.php'><strong>Добавить категорию<sup style='color:red'>админ</sup></strong></a></li>";-->
-<!--//                }-->
-<!--//              -->
+
           </ul>
           <a href="<?php echo $indexPath; ?>/controller/signout.php"><strong>Выйти</strong></a>
 

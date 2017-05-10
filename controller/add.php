@@ -15,11 +15,27 @@ $User = new User();
 
 $Database = new Database();
 
+switch ($_POST['category_name']){
+    case 'Без категории':
+        $category_id = 0;
+        break;
+    case 'Напоминания':
+        $category_id = 1;
+        break;
+    case 'О жизни':
+        $category_id = 2;
+        break;
+    case 'Приколы':
+        $category_id = 3;
+        break;
+}
+
 $new_title = $_POST['new_title'];
 $new_text = $_POST['new_text'];
 $user_id = $_SESSION["user_id"];
+$category_name = $_POST['category_name'];
 
-if($Database->newNote($new_title,$new_text,$user_id))
+if($Database->newNote($new_title,$new_text,$user_id,$category_id,$category_name))
 {
     header('Location: ../');
 }

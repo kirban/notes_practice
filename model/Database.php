@@ -8,7 +8,9 @@ class Database{
 
 
     function createTable(){
-        return mysqli_query($this->connection,"");
+
+        return mysqli_query($this->connection,"CREATE TABLE `practice`.`notes` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NULL DEFAULT NULL , `text` TEXT NULL DEFAULT NULL , `user_id` INT(11) NULL DEFAULT NULL , `pubdate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `category_id` INT(11) NOT NULL DEFAULT '0' , `category_name` VARCHAR(255) NOT NULL DEFAULT 'Без категории' , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
+
     }
 
 
@@ -77,9 +79,18 @@ class Database{
 
     }
 
-    function newNote($title,$text,$user_id){
+    function getCatName($id){
 
-        return mysqli_query($this->connection,"INSERT INTO `notes` (`id`, `title`, `text`, `user_id`, `pubdate`) VALUES (NULL, '$title', '$text', $user_id, CURRENT_TIMESTAMP)");
+        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `notes` WHERE `id` = $id");
+        $c = mysqli_fetch_assoc($q);
+        return $c[category_name];
+
+    }
+
+
+    function newNote($title,$text,$user_id,$category_id,$category_name){
+
+        return mysqli_query($this->connection,"INSERT INTO `notes` (`id`, `title`, `text`, `user_id`, `pubdate`,`category_id`,`category_name`) VALUES (NULL, '$title', '$text', '$user_id', CURRENT_TIMESTAMP,'$category_id','$category_name')");
 
     }
 
@@ -108,6 +119,33 @@ class Database{
 
         $id = $this->getNoteId();
         return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `pub_date` = $setPubDate WHERE `notes`.`id` = $id");
+
+    }
+
+    function setCatName($new_catName){
+        $id = $this->getNoteId();
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `category_name` = '$new_catName' WHERE `notes`.`id` = $id");
+    }
+
+    function setCatId(){
+        $id = $this->getNoteId();
+        $cat_name = $this->getCatName($id);
+
+        switch($cat_name){
+            case 'Без категории':
+                $cat_id = 0;
+                break;
+            case 'Напоминания':
+                $cat_id = 1;
+                break;
+            case 'О жизни':
+                $cat_id = 2;
+                break;
+            case 'Приколы':
+                $cat_id = 3;
+                break;
+        }
+        return mysqli_query($this->connection,"UPDATE `practice`.`notes` SET `category_id` = '$cat_id' WHERE `notes`.`id` = $id");
 
     }
 

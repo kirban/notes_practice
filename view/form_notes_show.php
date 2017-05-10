@@ -11,5 +11,5 @@ $p3="</div>";
 
 
 $p4="<p class=\"col - lg - 8 text-muted\">Дата публикации: ";
-
-$p5="</p>";
+$p5="<p class=\"col - lg - 8 text-muted\">Категория: ";
+$p6="</p>";
