@@ -5,7 +5,8 @@ $config = array(
     'show_limit' => 5,                                                  //отображаемое число записей на странице
     'db' => array(                                                      //данные для базы данных
         'host' => 'localhost',                                          //хост
-        'user' => 'kirban',                                             //пользователь
-        'password' => '34752',                                          //пароль
-        'dbname' => 'practice'),                                        //имя БД
+        'user' => 'root',                                             //пользователь
+        'password' => '',                                          //пароль
+        'dbname' => 'notes_practice'),                                        //имя БД
+    'Path' => 'E:/OpenServer/OpenServer/domains/practice.loc/',     //todo: сделать унифицированный, изменяемый путь до корня
 );
