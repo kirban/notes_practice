@@ -5,13 +5,15 @@
  * Date: 13.04.2017
  * Time: 11:26
  */
-require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+$root = $_SERVER['DOCUMENT_ROOT'];
+require ("$root/config.php");
 $title = "Главная - Notes Web Application";
 $toptitle = "Мои заметки";
 
 
 include ("../model/Database.php");
-$PathModel = "E:/OpenServer/OpenServer/domains/practice.loc/model";
+
+$PathModel = "$root/model";
 
 $Database = new Database();
 
@@ -27,8 +29,8 @@ require ("../view/top_template.php");
 
         $buttons=<<<BUT
             <form method="post" class="form-inline col-lg-6 col-lg-offset-9">
-              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change"><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
-              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" ><span class="glyphicons glyphicons-delete"></span>Удалить</button>
+              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change"><span class="glyphicon glyphicon-pencil"> Редактировать</span></button>
+              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" ><span class="glyphicon glyphicon-remove"> Удалить</span></button>
               </form>
 BUT;
 

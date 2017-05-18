@@ -1,6 +1,7 @@
 <?php
 include ('../model/Database.php');
-require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+$root = $_SERVER['DOCUMENT_ROOT'];
+require ("$root/config.php");
 $Database = new Database();
 $Database->connectToDb($config);
 

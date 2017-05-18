@@ -1,7 +1,8 @@
 <?php
 include "../model/Database.php";
 include "../model/User.php";
-require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+$root = $_SERVER['DOCUMENT_ROOT'];
+require ("$root/config.php");
 $User = new User();
 $User->connectToDb($config);
 

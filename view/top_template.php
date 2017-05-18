@@ -1,13 +1,14 @@
 <?php
 $indexPath = "..";
-$PathModel = "E:/OpenServer/OpenServer/domains/practice.loc/model";
+$root = $_SERVER['DOCUMENT_ROOT'];
+$PathModel = "$root/model";
 //require ("$indexPath/model/Database.php");
 //require ("$indexPath/model/User.php");
 session_start();
 $username = $_SESSION["session_username"];
 //$User = new User();
 //$Database = new Database();
-require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+require ("$root/config.php");
 
 ?>
 <!DOCTYPE html>
@@ -69,6 +70,9 @@ require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
         <li class="hidden-sm hidden-md hidden-lg"><a href="<?php echo $indexPath; ?>/controller/signout.php"><strong>Выйти</strong></a></li>
        </ul>
 
+       <form class="navbar-form navbar-right" name="search" action="../controller/search.php" method="post">
+           <input type="search" name="query" class="form-control" placeholder="Поиск...">
+       </form>
 
 
         </div>
@@ -95,7 +99,7 @@ require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header"><?php echo $toptitle; ?></h1>
           <form method="POST"><a href="<?php echo $indexPath; ?>/controller/show_all.php" name="show_all"><?php echo $all ?></a></form>
-
+            <?php echo $text; ?>
 
 
 

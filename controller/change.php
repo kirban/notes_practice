@@ -18,7 +18,6 @@ if (!$Tit && !$Text && !$CatName && !$CatId){
     die();
 }
 else {
-//  header('Location: ../');
-//  exit;
-    print_r($_POST);
+  header('Location: ../');
+  exit;
 }

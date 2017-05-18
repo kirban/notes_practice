@@ -11,18 +11,18 @@ class Category extends Database
 {
     function createTable(){
 
-        return $q = mysqli_query($this->connection,"CREATE TABLE `practice`.`categories1` ( `category_id` INT(255) NOT NULL AUTO_INCREMENT , `category_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`category_id`), INDEX `category_name` (`category_name`)) ENGINE = InnoDB;");
+        return $q = mysqli_query($this->connection,"CREATE TABLE `practice`.`categories` ( `category_id` INT(255) NOT NULL AUTO_INCREMENT , `category_name` VARCHAR(255) NOT NULL , PRIMARY KEY (`category_id`), INDEX `category_name` (`category_name`)) ENGINE = InnoDB;");
 
     }
     function returnListOfCategories(){
 
-        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `practice`.`categories` ");
+        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `categories` ");
         $c = mysqli_fetch_assoc($q);
         $i = 0;
         foreach ($q as $c){
             $cat_name = $c['category_name'];
             $cat_id = $i;
-            print_r("<button type='sumbit' name='cat_id' value='$cat_id'>$cat_name</button>");
+            print_r("<button class=\"btn btn-info\" type='sumbit' name='cat_id' value='$cat_id'>$cat_name</button>");
             $i++;
 
         }
@@ -30,7 +30,7 @@ class Category extends Database
 
     function returnListOptions($unsetCat){
 
-        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `practice`.`categories` ");
+        $q = mysqli_query($this->connection,"SELECT `category_name` FROM `categories` ");
         $c = mysqli_fetch_assoc($q);
 
         if (is_null($unsetCat)) {   //если 0, то просто выводим список

@@ -45,8 +45,12 @@ $top = <<<TOP
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button>          
           <a class="navbar-brand" href="../">Notes service</a>
+         
+          
+
+
         </div>
         
    <div class="collapse navbar-collapse hidden-sm hidden-md hidden-lg" id="navbar">
@@ -78,11 +82,26 @@ $top = <<<TOP
             <li class="hidden"><a href="#">Удалить пользователя<sup style="color:red">админ</sup></a></li>
           </ul>
           <a href="../controller/signout.php"><strong>Выйти</strong></a>
+          
+<!Либо успех--->
+          <div class="alert alert-success alert-dismissable fade in" style="margin-top:97%">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Cупер!</strong> У тебя пока нет напоминаний, либо ты уже все сделал, а это значит - ты классный!
+  </div>
+  
+  <!Либо не успех--->
+ <div class="alert alert-warning alert-dismissable fade in" style="margin-top:97%">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Внимание!</strong> У тебя есть незаконченное дело. <a href="#" class="alert-link">Зайди в напоминания!</a>
+  </div>
+          
         </div>
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">$toptitle</h1>
           <form method="POST" action="index.php"><a href="../controller/show_all.php" name="show_all">$all</a></form>
+
+
 
           
 

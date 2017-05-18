@@ -5,7 +5,8 @@
 // * Date: 10.05.2017
 // * Time: 15:18
 // */
-require ("E:/OpenServer/OpenServer/domains/practice.loc/config.php");
+$root = $_SERVER['DOCUMENT_ROOT'];
+require ("$root/config.php");
 session_start();
 $user_id = $_SESSION["user_id"];
 $cat_id = $_POST["cat_id"];
@@ -16,12 +17,12 @@ $toptitle = "Мои заметки";
 
 
 include ("../model/Database.php");
-$PathModel = "E:/OpenServer/OpenServer/domains/practice.loc/model";
+$PathModel = "$root/model";
 
 $Database = new Database();
 
 // основной запрос
-$result = mysqli_query($Database->connection,"SELECT * FROM `practice`.`notes` WHERE `user_id` = $user_id AND `category_id` = \"$cat_id\" ORDER BY `pubdate` DESC");
+$result = mysqli_query($Database->connection,"SELECT * FROM `notes` WHERE `user_id` = $user_id AND `category_id` = \"$cat_id\" ORDER BY `pubdate` DESC");
 
 
 
@@ -39,8 +40,8 @@ if (mysqli_num_rows($result) == 0){
 
         $buttons = <<<BUT
             <form method="post" class="form-inline col-lg-6 col-lg-offset-9">
-              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change"><span class="glyphicons glyphicons-edit"></span>Редактировать</button>
-              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" ><span class="glyphicons glyphicons-delete"></span>Удалить</button>
+              <button type="submit" class="btn btn-warning" formaction="../controller/fillForm.php" value="$d" name="change"><span class="glyphicon glyphicon-pencil"> Редактировать</span></button>
+              <button type="submit" class="btn btn-danger" formaction="../controller/delete.php" value="$d" name="delete" ><span class="glyphicon glyphicon-remove"> Удалить</span></button>
               </form>
 BUT;
 
